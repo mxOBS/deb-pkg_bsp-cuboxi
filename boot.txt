@@ -44,29 +44,7 @@ if test $ver < 201711; then
 		setenv somrev "-emmc-som-v15"
 	fi
 
-	# Guessing this is 2013.10
-	# else-case from original bootcmd when loadbootscript fails
-	run autodetectfdt
-	if run loadbootenv; then
-		run importbootenv
-	fi
-	if test -n ${serverip}; then
-		run netboot
-	fi
-	if test ${bootfile} = auto; then
-		setenv origbootfile auto
-		setenv bootfile zImage
-		if run loadbootfile; then
-			run mmcboot
-		else
-			setenv bootfile uImage
-		fi
-	fi
-	if run loadbootfile; then
-		run mmcboot
-	else
-		setenv bootfile ${origbootfile}
-	fi
+	# Letting the original boot logic kick back in, it will now search for a script in /boot/
 fi
 
 # unset ver if it didn't exist before

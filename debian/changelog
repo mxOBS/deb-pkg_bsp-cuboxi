@@ -1,3 +1,9 @@
+bsp-cuboxi (6) stable; urgency=medium
+
+  * move boot-script to /, to make it independent from the boot logic
+
+ -- Josua Mayer <josua.mayer97@gmail.com>  Mon, 19 Mar 2018 15:34:58 +0100
+
 bsp-cuboxi (5) stable; urgency=medium
 
   * introduce boot-script
